@@ -34,14 +34,12 @@ public class Carro implements Veiculo {
 		// TODO Auto-generated method stub
 	}
 
-	public boolean ligar() {
+	public void ligar() {
 		// TODO Auto-generated method stub
-		return false;
 	}
 
-	public boolean desligar() {
+	public void desligar() {
 		// TODO Auto-generated method stub
-		return false;
 	}
 	
 	//--------
