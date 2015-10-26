@@ -14,6 +14,7 @@ public class CarroTest {
 		
 		Assert.assertEquals( 0, carro.getDirecao(), 0 );
 		Assert.assertEquals( 0, carro.getVelocidade(), 0 );
+		Assert.assertEquals( 0, carro.getGirosMotor(), 0 );
 		Assert.assertEquals( Cambio.NEUTRO, carro.getMarcha());
 	}
 }

@@ -5,8 +5,9 @@ public class Carro implements Veiculo {
 	//--------
 	// ATRIBUTOS
 	//--------
+	private float girosMotor = 0;
 	private float velocidade = 0;
-	private float direcao = 0; 
+	private float direcao = 0;
 	private Cambio marcha = Cambio.NEUTRO;
 	private boolean ligado = false;
 	
@@ -60,5 +61,9 @@ public class Carro implements Veiculo {
 
 	public boolean isLigado() {
 		return ligado;
+	}
+
+	public float getGirosMotor() {
+		return girosMotor;
 	}
 }

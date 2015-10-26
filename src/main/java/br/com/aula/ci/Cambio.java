@@ -1,10 +1,20 @@
 package br.com.aula.ci;
 
 public enum Cambio {
-	NEUTRO,
-	PRIMEIRA_MARCA,
-	SEGUNDA_MARCA,
-	TERCEIRA_MARCA,
-	QUARTA_MARCA,
-	QUINTA_MARCA;
+	NEUTRO(0),
+	PRIMEIRA_MARCA(10),
+	SEGUNDA_MARCA(20),
+	TERCEIRA_MARCA(30),
+	QUARTA_MARCA(40),
+	QUINTA_MARCA(50);
+	
+	private float capacidade;
+	
+	private Cambio( float capacidade ) {
+		this.capacidade = capacidade;
+	}
+
+	public float getCapacidade() {
+		return capacidade;
+	}
 }
