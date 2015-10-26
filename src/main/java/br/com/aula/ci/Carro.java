@@ -39,6 +39,11 @@ public class Carro implements Veiculo {
 		return false;
 	}
 
+	/**
+	 * @author Thiago Tadashi
+	 * 
+	 * Método para desligar o carro, o carro deve estar ligado e parado.
+	 */
 	public void desligar() {
 		
 		if(this.isLigado()){

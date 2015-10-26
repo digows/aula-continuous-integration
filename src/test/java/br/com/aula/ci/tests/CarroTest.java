@@ -18,19 +18,35 @@ public class CarroTest {
 		Assert.assertEquals(Cambio.NEUTRO, carro.getMarcha());
 	}
 
+	
+	/**
+	 * @author Thiago tadashi
+	 * 
+	 * O carro deve estar ligado para poder ser desligado. Obs: deve passar.
+	 */
 	@Test
 	public void validaCarroDeveEstarDesligadoPassar() {
 		final Carro carro = new Carro();
 		carro.ligar();
 		carro.desligar();
 	}
-
+	
+	/**
+	 * @author Thiago tadashi
+	 * 
+	 * O carro deve estar ligado para poder ser desligado. Obs: deve reprovar.
+	 */
 	@Test
 	public void validaCarroDeveEstarDesligadoReprovar() {
 		final Carro carro = new Carro();
 		carro.desligar();
 	}
 
+	/**
+	 * @author Thiago tadashi
+	 * 
+	 * O carro deve estar parado para poder ser desligado. Obs: deve passar.
+	 */
 	@Test
 	public void validaCarroDeveEstarParadoPassar() {
 		final Carro carro = new Carro();
@@ -39,6 +55,11 @@ public class CarroTest {
 		carro.desligar();
 	}
 
+	/**
+	 * @author Thiago tadashi
+	 * 
+	 * O carro deve estar parado para poder ser desligado. Obs: deve reprovar.
+	 */
 	@Test
 	public void validaCarroDeveEstarParadoReprovar() {
 		final Carro carro = new Carro();
