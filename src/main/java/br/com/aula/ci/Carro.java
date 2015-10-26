@@ -2,18 +2,18 @@ package br.com.aula.ci;
 
 public class Carro implements Veiculo {
 
-	//--------
+	// --------
 	// ATRIBUTOS
-	//--------
+	// --------
 	private float girosMotor = 0;
 	private float velocidade = 0;
 	private float direcao = 0;
 	private Cambio marcha = Cambio.NEUTRO;
 	private boolean ligado = false;
-	
-	//--------
+
+	// --------
 	// COMPORTAMENTOS
-	//--------
+	// --------
 	public void acelerar(float forca) {
 		// TODO Auto-generated method stub
 	}
@@ -41,27 +41,31 @@ public class Carro implements Veiculo {
 
 	/**
 	 * @author Thiago Tadashi
+	 * @throws IllegalStateException
 	 * 
-	 * Método para desligar o carro, o carro deve estar ligado e parado.
+	 *             Método para desligar o carro, o carro deve estar ligado e
+	 *             parado.
 	 */
 	public void desligar() {
-		
-		if(this.isLigado()){
-			
-			if(this.getVelocidade() > 0){
-				
-			}else{
+
+		if (this.isLigado()) {
+
+			if (this.getVelocidade() > 0) {
+				throw new IllegalStateException(
+						"O carro precisa estar parado para poder ser desligado!");
+			} else {
 				this.ligado = false;
 			}
-			
-		}else{
-			
+
+		} else {
+			throw new IllegalStateException(
+					"O carro precisa estar ligado para poder ser desligado!");
 		}
 	}
-	
-	//--------
+
+	// --------
 	// GETTERS
-	//--------
+	// --------
 	public float getVelocidade() {
 		return velocidade;
 	}
