@@ -7,5 +7,5 @@ public interface Veiculo {
 	public void virarDireita( float graus );
 	public void trocarMarcha( Cambio cambio );
 	public boolean ligar();
-	public boolean desligar();
+	public void desligar();
 }

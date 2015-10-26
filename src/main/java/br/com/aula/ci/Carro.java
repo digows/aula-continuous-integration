@@ -39,9 +39,19 @@ public class Carro implements Veiculo {
 		return false;
 	}
 
-	public boolean desligar() {
-		// TODO Auto-generated method stub
-		return false;
+	public void desligar() {
+		
+		if(this.isLigado()){
+			
+			if(this.getVelocidade() > 0){
+				
+			}else{
+				this.ligado = false;
+			}
+			
+		}else{
+			
+		}
 	}
 	
 	//--------
