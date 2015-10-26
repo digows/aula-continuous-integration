@@ -33,10 +33,16 @@ public class Carro implements Veiculo {
 	public void trocarMarcha(Cambio cambio) {
 		// TODO Auto-generated method stub
 	}
-
-	public boolean ligar() {
-		// TODO Auto-generated method stub
-		return false;
+	/**
+	 * Autor Osmar
+	 * 
+	 */
+	public void ligar() {		
+		if (!this.isLigado()){
+			this.ligado=true;
+		}else{
+			throw new IllegalStateException("O carro deve estar desligado!");
+		}		
 	}
 
 	public boolean desligar() {
