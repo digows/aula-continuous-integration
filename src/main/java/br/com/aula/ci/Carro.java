@@ -14,8 +14,18 @@ public class Carro implements Veiculo {
 	//--------
 	// COMPORTAMENTOS
 	//--------
+	
+	/**
+	 * Desenvolvedor: Tony
+	 * Classe destinada a setar valores para o giro do motor e a velocidade.
+	 */
 	public void acelerar(float forca) {
-		// TODO Auto-generated method stub
+		if (forca >= 0 && forca <= 100){
+			girosMotor = marcha.getCapacidade() * forca;
+			velocidade = girosMotor/10f;
+		}
+		else 
+			throw new IllegalArgumentException("Valor para aceleracao invalido!");
 	}
 
 	public void freiar(float forca) {
