@@ -9,6 +9,7 @@ public enum Cambio {
 	QUINTA_MARCA(50);
 	
 	private float capacidade;
+	private float giros;
 	
 	private Cambio( float capacidade ) {
 		this.capacidade = capacidade;
@@ -16,5 +17,14 @@ public enum Cambio {
 
 	public float getCapacidade() {
 		return capacidade;
+	}
+	
+	public float calculaGiros(float forca) {
+		if(forca > 0) {
+			giros = forca*capacidade;
+		} else {
+			giros = 0;
+		}
+		return giros;
 	}
 }
