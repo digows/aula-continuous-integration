@@ -17,4 +17,12 @@ public enum Cambio {
 	public float getCapacidade() {
 		return capacidade;
 	}
+	
+	public float calculaGiros(float forca) {
+		if(forca > 0) {
+			return forca*capacidade;
+		} else {
+			return 0;
+		}
+	}
 }
