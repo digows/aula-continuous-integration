@@ -15,11 +15,16 @@ public class Carro implements Veiculo {
 	// COMPORTAMENTOS
 	// --------
 	public void acelerar(float forca) {
-		if (forca >= 0 && forca <= 100) {
-			girosMotor = marcha.getCapacidade() * forca;
-			velocidade = girosMotor / 10f;
-		} else
-			throw new IllegalArgumentException("Valor para aceleracao invalido!");
+		if (isLigado())
+			if (forca >= 0 && forca <= 100) {
+				girosMotor = marcha.getCapacidade() * forca;
+				velocidade = girosMotor / 10f;
+			} else
+				throw new IllegalArgumentException(
+						"Valor para aceleracao invalido!");
+		else
+			throw new IllegalArgumentException(
+					"O caro esta sendo acelerado enquanto esta desligado!");
 	}
 
 	public void freiar(float forca) {
@@ -50,13 +55,15 @@ public class Carro implements Veiculo {
 		if (this.isLigado()) {
 
 			if (this.getVelocidade() > 0) {
-				throw new IllegalStateException("O carro precisa estar parado para poder ser desligado!");
+				throw new IllegalStateException(
+						"O carro precisa estar parado para poder ser desligado!");
 			} else {
 				this.ligado = false;
 			}
 
 		} else {
-			throw new IllegalStateException("O carro precisa estar ligado para poder ser desligado!");
+			throw new IllegalStateException(
+					"O carro precisa estar ligado para poder ser desligado!");
 		}
 	}
 
