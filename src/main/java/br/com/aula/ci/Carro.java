@@ -2,29 +2,23 @@ package br.com.aula.ci;
 
 public class Carro implements Veiculo {
 
-	//--------
+	// --------
 	// ATRIBUTOS
-	//--------
+	// --------
 	private float girosMotor = 0;
 	private float velocidade = 0;
 	private float direcao = 0;
 	private Cambio marcha = Cambio.NEUTRO;
 	private boolean ligado = false;
-	
-	//--------
+
+	// --------
 	// COMPORTAMENTOS
-	//--------
-	
-	/**
-	 * Desenvolvedor: Tony
-	 * Classe destinada a setar valores para o giro do motor e a velocidade.
-	 */
+	// --------
 	public void acelerar(float forca) {
-		if (forca >= 0 && forca <= 100){
+		if (forca >= 0 && forca <= 100) {
 			girosMotor = marcha.getCapacidade() * forca;
-			velocidade = girosMotor/10f;
-		}
-		else 
+			velocidade = girosMotor / 10f;
+		} else
 			throw new IllegalArgumentException("Valor para aceleracao invalido!");
 	}
 
@@ -44,19 +38,31 @@ public class Carro implements Veiculo {
 		// TODO Auto-generated method stub
 	}
 
-	public boolean ligar() {
-		// TODO Auto-generated method stub
-		return false;
+	public void ligar() {
+		if (!this.isLigado()) {
+			this.ligado = true;
+		} else {
+			throw new IllegalStateException("O carro deve estar desligado!");
+		}
 	}
 
-	public boolean desligar() {
-		// TODO Auto-generated method stub
-		return false;
+	public void desligar() {
+		if (this.isLigado()) {
+
+			if (this.getVelocidade() > 0) {
+				throw new IllegalStateException("O carro precisa estar parado para poder ser desligado!");
+			} else {
+				this.ligado = false;
+			}
+
+		} else {
+			throw new IllegalStateException("O carro precisa estar ligado para poder ser desligado!");
+		}
 	}
-	
-	//--------
+
+	// --------
 	// GETTERS
-	//--------
+	// --------
 	public float getVelocidade() {
 		return velocidade;
 	}
