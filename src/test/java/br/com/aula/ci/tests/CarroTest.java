@@ -81,7 +81,7 @@ public class CarroTest {
 		Assert.assertEquals(Cambio.PRIMEIRA_MARCA, carro.getMarcha());
 		carro.acelerar(10);
 		Assert.assertEquals(10 * Cambio.PRIMEIRA_MARCA.getCapacidade(), carro.getGirosMotor(), 0);
-		Assert.assertEquals(10 * Cambio.PRIMEIRA_MARCA.getCapacidade(), carro.getVelocidade(), 0);
+		Assert.assertEquals(carro.getGirosMotor()/10, carro.getVelocidade(), 0);
 		Assert.assertTrue(carro.getVelocidade() > 0);
 	}
 
@@ -92,7 +92,8 @@ public class CarroTest {
 		// Liga e assegura que o carro está ligado
 		carro.ligar();
 		Assert.assertTrue(carro.isLigado());
-
+		carro.trocarMarcha(Cambio.PRIMEIRA_MARCA);
+		
 		// Assegura a troca de marcha da Primeira para a segunda
 		Assert.assertEquals(Cambio.PRIMEIRA_MARCA, carro.getMarcha());
 		carro.trocarMarcha(Cambio.SEGUNDA_MARCA);
@@ -103,7 +104,7 @@ public class CarroTest {
 		carro.acelerar(10);
 
 		Assert.assertEquals(10 * Cambio.SEGUNDA_MARCA.getCapacidade(), carro.getGirosMotor(), 0);
-		Assert.assertEquals(10 * Cambio.SEGUNDA_MARCA.getCapacidade(), carro.getVelocidade(), 0);
+		Assert.assertEquals(carro.getGirosMotor()/10, carro.getVelocidade(), 0);
 		Assert.assertTrue(carro.getVelocidade() > 0);
 	}
 	
@@ -111,7 +112,7 @@ public class CarroTest {
 	 * Osmar
 	 *Teste ligar o carro
 	 */
-	@Test
+	@Test(expected=IllegalStateException.class)
 	public void validaEstadoParaLigar(){
 		final Carro carro = new Carro();
 		// 1 senario liga primeira vez
@@ -162,7 +163,7 @@ public class CarroTest {
 		carro.acelerar(10);
 		
 		carro.freiar(1);
-		Assert.assertTrue(carro.getVelocidade() == 90);
+		Assert.assertTrue(carro.getVelocidade() == 9);
 	}
 	
 	/**
@@ -182,7 +183,7 @@ public class CarroTest {
 	 * 
 	 * O carro deve estar ligado para poder ser desligado. Obs: deve reprovar.
 	 */
-	@Test
+	@Test(expected=IllegalStateException.class)
 	public void validaCarroDeveEstarDesligadoReprovar() {
 		final Carro carro = new Carro();
 		carro.desligar();
@@ -193,7 +194,7 @@ public class CarroTest {
 	 * 
 	 * O carro deve estar parado para poder ser desligado. Obs: deve passar.
 	 */
-	@Test
+	@Test(expected=IllegalStateException.class)
 	public void validaCarroDeveEstarParadoPassar() {
 		final Carro carro = new Carro();
 		carro.acelerar(100);
@@ -206,7 +207,7 @@ public class CarroTest {
 	 * 
 	 * O carro deve estar parado para poder ser desligado. Obs: deve reprovar.
 	 */
-	@Test
+	@Test(expected=IllegalStateException.class)
 	public void validaCarroDeveEstarParadoReprovar() {
 		final Carro carro = new Carro();
 		carro.acelerar(100);

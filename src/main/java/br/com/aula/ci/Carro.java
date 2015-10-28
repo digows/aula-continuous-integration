@@ -34,7 +34,7 @@ public class Carro implements Veiculo {
 	}
 
 	public void freiar(float forca) {
-		// TODO Auto-generated method stub
+		velocidade = velocidade - forca;
 	}
 
 	public void virarEsquerda(float graus) {
@@ -46,7 +46,7 @@ public class Carro implements Veiculo {
 	}
 
 	public void trocarMarcha(Cambio cambio) {
-		// TODO Auto-generated method stub
+		marcha = cambio;
 	}
 
 	public void ligar() {
