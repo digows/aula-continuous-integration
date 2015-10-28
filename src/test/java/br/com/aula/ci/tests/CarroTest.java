@@ -28,8 +28,8 @@ public class CarroTest {
 		
 		Assert.assertTrue(carro.isLigado());
 		Assert.assertEquals(carro.getMarcha(), Cambio.NEUTRO);
-		Assert.assertNull(carro.getVelocidade());
-		Assert.assertEquals (1600f, carro.getGirosMotor(), 0);
+		Assert.assertEquals(0.0f, carro.getVelocidade(), 0);
+		Assert.assertEquals(80f, carro.getGirosMotor(), 0);
 		
 		
 		carro.trocarMarcha(Cambio.SEGUNDA_MARCA);

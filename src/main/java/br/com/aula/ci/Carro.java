@@ -17,13 +17,19 @@ public class Carro implements Veiculo {
 	public void acelerar(float forca) {
 		if (isLigado())
 			if (forca >= 0 && forca <= 100) {
-				girosMotor = marcha.getCapacidade() * forca;
-				velocidade = girosMotor / 10f;
+				if (marcha.getCapacidade() != 0.0f){
+					girosMotor = marcha.getCapacidade() * forca;
+					velocidade = girosMotor / 10f;
+				} else{
+					girosMotor = forca;
+					velocidade = 0f;
+				}
+					
 			} else
 				throw new IllegalArgumentException(
 						"Valor para aceleracao invalido!");
 		else
-			throw new IllegalArgumentException(
+			throw new IllegalStateException(
 					"O caro esta sendo acelerado enquanto esta desligado!");
 	}
 
