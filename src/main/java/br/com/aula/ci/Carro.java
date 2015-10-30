@@ -17,14 +17,14 @@ public class Carro implements Veiculo {
 	public void acelerar(float forca) {
 		if (isLigado())
 			if (forca >= 0 && forca <= 100) {
-				if (marcha.getCapacidade() != 0.0f){
+				if (marcha.getCapacidade() != 0.0f) {
 					girosMotor = marcha.getCapacidade() * forca;
 					velocidade = girosMotor / 10f;
-				} else{
+				} else {
 					girosMotor = forca;
 					velocidade = 0f;
 				}
-					
+
 			} else
 				throw new IllegalArgumentException(
 						"Valor para aceleracao invalido!");
@@ -34,7 +34,28 @@ public class Carro implements Veiculo {
 	}
 
 	public void freiar(float forca) {
-		velocidade = velocidade - forca;
+		if (velocidade > 0) {
+			if (forca >= 0 && forca <= 100)
+				velocidade = velocidade - ((velocidade / 100) * forca);
+			else
+				throw new IllegalArgumentException(
+						"Valor para freiar invalido!");
+		} else
+			throw new IllegalArgumentException("O carro não está em movimento!");
+	}
+
+	public void virar(float graus) {
+		if ((graus >= -90 && graus <= 90)) {
+			if (graus >= -90 && graus < 0)
+				graus = graus * -1;
+			if (velocidade > 0) {
+				velocidade = velocidade - ((velocidade / 100) * graus);
+				girosMotor = girosMotor - ((girosMotor / 100) * graus);
+			} else
+				throw new IllegalArgumentException(
+						"O carro não está em movimento!");
+		} else
+			throw new IllegalArgumentException("Valor para virar invalido!");
 	}
 
 	public void virarEsquerda(float graus) {
@@ -46,7 +67,10 @@ public class Carro implements Veiculo {
 	}
 
 	public void trocarMarcha(Cambio cambio) {
-		marcha = cambio;
+		if (isLigado())
+			marcha = cambio;
+		else
+			throw new IllegalStateException("O caro não esta ligado!");
 	}
 
 	public void ligar() {

@@ -163,7 +163,7 @@ public class CarroTest {
 		carro.acelerar(10);
 		
 		carro.freiar(1);
-		Assert.assertTrue(carro.getVelocidade() == 9);
+		Assert.assertTrue(carro.getVelocidade() == 9.9f);
 	}
 	
 	/**
@@ -220,5 +220,42 @@ public class CarroTest {
 		Cambio c = Cambio.PRIMEIRA_MARCA;
 		c.calculaGiros(10);
 		Assert.assertEquals(0, c.calculaGiros(10), 100);
+	}
+	
+	@Test
+	public void virarDevePassar() {
+		final Carro carro = new Carro();
+		
+		carro.ligar();
+		carro.trocarMarcha(Cambio.SEGUNDA_MARCA);
+		carro.acelerar(90f);
+		carro.virar(10);
+
+		Assert.assertEquals (1620f, carro.getGirosMotor(), 0);
+		Assert.assertEquals(1620/10f, carro.getVelocidade(), 0);
+		
+		carro.acelerar(90f);
+		carro.virar(-20);
+
+		Assert.assertEquals (1440f, carro.getGirosMotor(), 0);
+		Assert.assertEquals(1440/10f, carro.getVelocidade(), 0);
+	}
+	@Test(expected=IllegalArgumentException.class)
+	public void virarParaDireitaDeveFalhar(){
+		final Carro carro = new Carro();
+		carro.ligar();
+		carro.acelerar(90f);
+		carro.virar(110);
+		
+		Assert.fail("Valor invalido para virar o carro!");
+	}
+	@Test(expected=IllegalArgumentException.class)
+	public void virarParaEsquerdaDeveFalhar(){
+		final Carro carro = new Carro();
+		carro.ligar();
+		carro.acelerar(90f);
+		carro.virar(-95);
+		
+		Assert.fail("Valor invalido para virar o carro!");
 	}
 }
