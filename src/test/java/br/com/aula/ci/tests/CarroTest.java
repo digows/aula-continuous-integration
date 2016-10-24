@@ -17,7 +17,7 @@ public class CarroTest {
 		Assert.assertEquals( 0, carro.getGirosMotor(), 0 );
 		Assert.assertEquals( Cambio.NEUTRO, carro.getMarcha());
 	}
-
+	
 	@Test
 	public void calculaGirosMotorDevePassar() {
 		Cambio c = Cambio.PRIMEIRA_MARCA;
