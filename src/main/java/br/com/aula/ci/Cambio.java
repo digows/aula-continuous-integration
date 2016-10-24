@@ -20,11 +20,6 @@ public enum Cambio {
 	}
 	
 	public float calculaGiros(float forca) {
-		if(forca > 0) {
-			giros = forca*capacidade;
-		} else {
-			giros = 0;
-		}
-		return giros;
+		return 0;
 	}
 }
