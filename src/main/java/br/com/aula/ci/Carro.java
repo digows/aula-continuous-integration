@@ -10,7 +10,7 @@ public class Carro implements Veiculo {
 	private float direcao = 0;
 	private Cambio marcha = Cambio.NEUTRO;
 	private boolean ligado = false;
-	
+
 	//--------
 	// COMPORTAMENTOS
 	//--------

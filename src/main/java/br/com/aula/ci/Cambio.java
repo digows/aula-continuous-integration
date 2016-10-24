@@ -10,7 +10,7 @@ public enum Cambio {
 	
 	private float capacidade;
 	private float giros;
-	
+
 	private Cambio( float capacidade ) {
 		this.capacidade = capacidade;
 	}
