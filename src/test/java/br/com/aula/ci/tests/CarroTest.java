@@ -30,10 +30,10 @@ public class CarroTest {
 		Carro carro = new Carro();
 		carro.ligar();
 		Cambio c = Cambio.PRIMEIRA_MARCA;
-		carro.trocarMarcha(c);
+		carro.trocarMarcha(c);		
 		Assert.assertEquals(carro.getMarcha(),c);
 	}
-	@Test
+	@Test(expected=IndexOutOfBoundsException.class)
 	public void trocaDeMarchaNaoDevePassar(){
 		Carro carro = new Carro();
 		carro.ligar();

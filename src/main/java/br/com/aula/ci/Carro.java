@@ -32,6 +32,9 @@ public class Carro implements Veiculo {
 
 	public void trocarMarcha(Cambio cambio) {
 		// TODO Auto-generated method stub
+		if(cambio.getCapacidade() == this.marcha.getCapacidade()+10 || this.marcha.getCapacidade() == cambio.getCapacidade()-10)
+		this.marcha = cambio;
+		
 	}
 
 	public boolean ligar() {
