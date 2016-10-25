@@ -22,12 +22,31 @@ public class Carro implements Veiculo {
 		// TODO Auto-generated method stub
 	}
 
-	public void virarEsquerda(float graus) {
-		// TODO Auto-generated method stub
+	public void virarEsquerda(float graus)     {
+		
+		if (graus < -91 || graus < 0) {
+			//soltaria a excessão
+		}
+		
+		if (!this.desligar()){
+			
+			this.velocidade = this.velocidade * (graus/100);
+			
+			}
+		
 	}
 
 	public void virarDireita(float graus) {
-		// TODO Auto-generated method stub
+		
+		if (graus > 0 || graus < 91) {
+			//soltaria a excessão
+		}
+		
+		if (!this.desligar()){
+			
+			this.velocidade = this.velocidade * (graus/100);
+			
+			}
 	}
 
 	public void trocarMarcha(Cambio cambio) {
