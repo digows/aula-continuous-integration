@@ -36,6 +36,7 @@ public class CarroTest {
 		
 	}
 	
+	@Test
 	public void velocidadeInalteradaDevePassar(){
 		final Carro carro = new Carro();
 		
