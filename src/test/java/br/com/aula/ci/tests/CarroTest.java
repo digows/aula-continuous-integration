@@ -22,7 +22,26 @@ public class CarroTest {
 	public void calculaGirosMotorDevePassar() {
 		Cambio c = Cambio.PRIMEIRA_MARCA;
 		c.calculaGiros(10);
+		System.out.println(c.getCapacidade());
 		Assert.assertEquals(0, c.calculaGiros(10), 100);
+	}
+	@Test
+	public void trocaDeMarchaDevePassar(){		
+		Carro carro = new Carro();
+		carro.ligar();
+		Cambio c = Cambio.PRIMEIRA_MARCA;
+		carro.trocarMarcha(c);
+		Assert.assertEquals(carro.getMarcha(),c);
+	}
+	@Test
+	public void trocaDeMarchaNaoDevePassar(){
+		Carro carro = new Carro();
+		carro.ligar();
+		Cambio c = Cambio.PRIMEIRA_MARCA;
+		carro.trocarMarcha(c);
+		c = Cambio.QUINTA_MARCA;
+		carro.trocarMarcha(c);
+		Assert.assertEquals(carro.getMarcha(),c);
 	}
 	
 	@Test
