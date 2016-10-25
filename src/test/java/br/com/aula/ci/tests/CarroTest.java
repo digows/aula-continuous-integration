@@ -1,5 +1,5 @@
 package br.com.aula.ci.tests;
-
+ 
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -25,4 +25,22 @@ public class CarroTest {
 		Assert.assertEquals(0, c.calculaGiros(10), 100);
 	}
 	
+	@Test 
+	public void desligarCarroDevePassar(){
+		final Carro carro = new Carro();
+		
+		carro.ligar();
+		carro.desligar();
+		
+		Assert.assertFalse(carro.isLigado());	
+	}
+
+	@Test 
+	public void desligarCarroDeveFalhar(){
+		final Carro carro = new Carro();
+		
+		carro.desligar();
+ 
+		Assert.assertEquals(carro.isLigado(), false);
+	}
 }
