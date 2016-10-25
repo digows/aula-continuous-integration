@@ -31,6 +31,7 @@ public class CarroTest {
 		
 		carro.ligar();
 		Assert.assertEquals(true, carro.isLigado());
+		
 		carro.acelerar(0);
 		Assert.assertEquals(0, carro.getVelocidade(), 0);
 		carro.acelerar(101);
