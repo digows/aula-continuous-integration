@@ -2,11 +2,11 @@ package br.com.aula.ci;
 
 public enum Cambio {
 	NEUTRO(0),
-	PRIMEIRA_MARCA(10),
-	SEGUNDA_MARCA(20),
-	TERCEIRA_MARCA(30),
-	QUARTA_MARCA(40),
-	QUINTA_MARCA(50);
+	PRIMEIRA_MARCHA(10),
+	SEGUNDA_MARCHA(20),
+	TERCEIRA_MARCHA(30),
+	QUARTA_MARCHA(40),
+	QUINTA_MARCHA(50);
 	
 	private float capacidade;
 	private float giros;
@@ -19,7 +19,14 @@ public enum Cambio {
 		return capacidade;
 	}
 	
+	/**
+	 * Este método tem por objetivo calcular quantidade de giros do motor de acordo com a força aplicada na marcha selecionada
+	 * 
+	 * @author Diogo
+	 * @param forca
+	 * @return quantidade de giros
+	 */
 	public float calculaGiros(float forca) {
-		return 0;
+		return this.capacidade * forca;
 	}
 }
