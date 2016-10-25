@@ -25,4 +25,17 @@ public class CarroTest {
 		Assert.assertEquals(0, c.calculaGiros(10), 100);
 	}
 	
+	@Test
+	public void validaFreia() {
+		final Carro carro = new Carro();
+		
+		carro.setVelocidade(100);
+		carro.freiar();
+
+		Assert.assertEquals( 0, carro.getVelocidade(), 0 );
+		Assert.assertEquals( 0, carro.getGirosMotor(), 0 );
+		Assert.assertEquals( Cambio.NEUTRO, carro.getMarcha());
+	}
+
+	
 }
