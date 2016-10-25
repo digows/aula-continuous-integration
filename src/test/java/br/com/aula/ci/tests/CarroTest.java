@@ -29,13 +29,29 @@ public class CarroTest {
 	public void validaFreia() {
 		final Carro carro = new Carro();
 		
-		carro.setVelocidade(100);
-		carro.freiar();
+		carro.acelerar(100);
+		carro.freiar(0);
 
 		Assert.assertEquals( 0, carro.getVelocidade(), 0 );
 		Assert.assertEquals( 0, carro.getGirosMotor(), 0 );
 		Assert.assertEquals( Cambio.NEUTRO, carro.getMarcha());
 	}
 
+	@Test 
+	public void viraEsquerdaDeveFalhar(){
+		final Carro carro = new Carro();
+		
+		final float velocidade = carro.getVelocidade()*(50/100);
+		carro.virarDireita(50);
+		Assert.assertEquals(carro.getVelocidade(), velocidade);
+	}
 	
+	@Test
+	public void velocidadeInalteradaDevePassar(){
+		final Carro carro = new Carro();
+		
+		Assert.assertTrue(carro.desligar());
+		carro.virarEsquerda(30);
+		Assert.assertEquals(carro.getVelocidade(), 0);
+	}
 }
