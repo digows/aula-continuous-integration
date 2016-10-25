@@ -28,6 +28,7 @@ public class CarroTest {
 	@Test(expected = IllegalArgumentException.class)
 	public void ValidaAceleracaoEntreZeroECem() {
 		final Carro carro = new Carro();
+		
 		carro.ligar();
 		Assert.assertEquals(true, carro.isLigado());
 		carro.acelerar(0);
