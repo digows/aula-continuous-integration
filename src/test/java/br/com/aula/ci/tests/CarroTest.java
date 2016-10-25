@@ -25,4 +25,12 @@ public class CarroTest {
 		Assert.assertEquals(0, c.calculaGiros(10), 100);
 	}
 	
+	@Test
+	public void calculaGirosMotorSegundaMarchaDevePassar() {
+		Cambio cambio = Cambio.SEGUNDA_MARCA;
+		float forca = 20;
+		cambio.calculaGiros(forca);
+		Assert.assertEquals(40, cambio.calculaGiros(forca), 0.1);
+	}
+	
 }
