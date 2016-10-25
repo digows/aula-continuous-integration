@@ -36,7 +36,7 @@ public class CarroTest {
 		Assert.assertEquals( 0, carro.getGirosMotor(), 0 );
 		Assert.assertEquals( Cambio.NEUTRO, carro.getMarcha());
 	}
-    
+	
     @Test
     public void carroNaoDeveLigar(){
         final Carro carro = new Carro();
@@ -48,4 +48,19 @@ public class CarroTest {
         final Carro carro = new Carro();
         Assert.assertEquals(true,carro.ligar());
     }
+
+	@Test(expected = IllegalArgumentException.class)
+	public void ValidaAceleracaoEntreZeroECem() {
+		final Carro carro = new Carro();
+		
+		carro.ligar();
+		Assert.assertEquals(true, carro.isLigado());
+		
+		carro.acelerar(0);
+		Assert.assertEquals(0, carro.getVelocidade(), 0);
+		carro.acelerar(101);
+		Assert.assertNotEquals(101, carro.getVelocidade());
+		carro.acelerar(-1);
+		Assert.assertNotEquals(-1, carro.getVelocidade());
+	}
 }
