@@ -36,6 +36,18 @@ public class CarroTest {
 		Assert.assertEquals( 0, carro.getGirosMotor(), 0 );
 		Assert.assertEquals( Cambio.NEUTRO, carro.getMarcha());
 	}
-
+    
+    @Test
+    public void carroNaoDeveLigar(){
+        final Carro carro = new Carro();
+        Assert.assertEquals(false,carro.ligar());
+    }
+    
+    @Test
+    public void carroDeveLigar(){
+        final Carro carro = new Carro();
+        Assert.assertEquals(true,carro.ligar());
+    }
+    
 	
 }
