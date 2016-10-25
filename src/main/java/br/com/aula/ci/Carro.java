@@ -15,7 +15,22 @@ public class Carro implements Veiculo {
 	// COMPORTAMENTOS
 	//--------
 	public void acelerar(float forca) {
-		// TODO Auto-generated method stub
+		if (ligado = true && forca <= 100 && forca >= 0 ) {
+			velocidade = forca * marcha.getCapacidade();
+		} else {
+			if (ligado = false) {
+				throw new IllegalArgumentException("Carro está desligado");
+			}
+			
+			if (forca > 100) {
+				throw new IllegalArgumentException("Não é possivel acelerar mais");
+			}
+			
+			if (forca < 0) {
+				throw new IllegalArgumentException("Não é possivel diminuir a velocidade para um valor negativo");
+			}
+			
+		}
 	}
 
 	public void freiar(float forca) {
