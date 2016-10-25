@@ -35,7 +35,10 @@ public class Carro implements Veiculo {
 	}
 
 	public boolean ligar() {
-		// TODO Auto-generated method stub
+        if (this.ligado == false){
+            this.ligado = true;
+            return true;
+        }
 		return false;
 	}
 
