@@ -25,4 +25,22 @@ public class CarroTest {
 		Assert.assertEquals(0, c.calculaGiros(10), 100);
 	}
 	
+	@Test 
+	public void viraEsquerdaDeveFalhar(){
+		final Carro carro = new Carro();
+		float velocidade = carro.getVelocidade()*(50/100);
+		carro.virarDireita(50);
+		Assert.assertEquals(carro.getVelocidade(), velocidade);
+
+		
+	}
+	
+	public void velocidadeNaoDeveAlterar(){
+		final Carro carro = new Carro();
+		
+		
+		
+		
+	}
+	
 }
