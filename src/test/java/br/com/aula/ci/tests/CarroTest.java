@@ -28,6 +28,7 @@ public class CarroTest {
 	@Test 
 	public void viraEsquerdaDeveFalhar(){
 		final Carro carro = new Carro();
+		
 		float velocidade = carro.getVelocidade()*(50/100);
 		carro.virarDireita(50);
 		Assert.assertEquals(carro.getVelocidade(), velocidade);
@@ -35,12 +36,12 @@ public class CarroTest {
 		
 	}
 	
-	public void velocidadeNaoDeveAlterar(){
+	public void velocidadeInalteradaDevePassar(){
 		final Carro carro = new Carro();
 		
-		
-		
-		
+		Assert.assertTrue(carro.desligar());
+		carro.virarEsquerda(30);
+		Assert.assertEquals(carro.getVelocidade(), 0);
 	}
 	
 }
