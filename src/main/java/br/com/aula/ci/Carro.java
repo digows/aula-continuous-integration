@@ -24,7 +24,7 @@ public class Carro implements Veiculo {
 
 	public void virarEsquerda(float graus)     {
 		
-		if (graus < -91 || graus < 0) {
+		if (graus < -90 || graus > -1) {
 			//soltaria a excessão
 		}
 		
@@ -32,13 +32,12 @@ public class Carro implements Veiculo {
 			
 			this.velocidade = this.velocidade * (graus/100);
 			
-			}
-		
+			}	
 	}
 
 	public void virarDireita(float graus) {
 		
-		if (graus > 0 || graus < 91) {
+		if (graus < 1 || graus > 90) {
 			//soltaria a excessão
 		}
 		
