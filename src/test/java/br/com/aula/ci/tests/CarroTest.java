@@ -29,9 +29,9 @@ public class CarroTest {
 	public void viraEsquerdaDeveFalhar(){
 		
 		final Carro carro = new Carro();
-		final float velocidade = carro.getVelocidade()*(50/100);
+		final float velocidade = carro.getVelocidade()*(60/100);
 		
-		carro.virarEsquerda(50);
+		carro.virarEsquerda(60);
 		Assert.assertEquals(carro.getVelocidade(), velocidade);
 
 		

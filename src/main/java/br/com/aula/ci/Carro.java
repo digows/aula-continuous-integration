@@ -25,12 +25,12 @@ public class Carro implements Veiculo {
 	public void virarEsquerda(float graus)     {
 		
 		if (graus < -90 || graus > -1) {
-			//soltaria a excessão
+			//exceção
 		}
 		
 		if (!this.desligar()){
 			
-			this.velocidade = this.velocidade * (graus/100);
+			this.velocidade = this.velocidade * ( (graus * -1) / 100);
 			
 			}	
 	}
@@ -38,12 +38,12 @@ public class Carro implements Veiculo {
 	public void virarDireita(float graus) {
 		
 		if (graus < 1 || graus > 90) {
-			//soltaria a excessão
+			//exceção
 		}
 		
 		if (!this.desligar()){
 			
-			this.velocidade = this.velocidade * (graus/100);
+			this.velocidade = this.velocidade * (graus / 100);
 			
 			}
 	}
