@@ -17,9 +17,21 @@ public class Carro implements Veiculo {
 	public void acelerar(float forca) {
 		// TODO Auto-generated method stub
 	}
-
+	
+	//Método construido por eliezersqr (Siqueira)
 	public void freiar(float forca) {
-		// TODO Auto-generated method stub
+		if(this.ligado == true || this.velocidade > 0){
+			//Calculando a velocidade a ser reduzida com base na força
+			float brakingVelocity = (this.getMarcha().calculaGiros(forca) / 100) * 10;
+			
+			//Freiando o carro
+			if(brakingVelocity > this.velocidade){
+				this.velocidade = 0;
+				this.girosMotor = 0;
+			}else{
+				this.velocidade = this.velocidade - brakingVelocity;
+			}
+		}
 	}
 
 	public void virarEsquerda(float graus) {
